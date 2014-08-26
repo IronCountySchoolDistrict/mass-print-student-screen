@@ -1,0 +1,9 @@
+<script>
+
+	$j(document).ready(function()
+		{			
+			$j("form[action='massprintframes.html']").prop("action", "massprintajax.html");			
+		}
+	);
+
+</script>

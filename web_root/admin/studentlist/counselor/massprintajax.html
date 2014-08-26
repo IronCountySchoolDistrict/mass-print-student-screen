@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    ~[wc:commonscripts]
+
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+
+    <style>
+        div.studentscreen {
+            page-break-after: always;
+        }
+    </style>
+
+
+    <script>
+        $j(document).ready(function () {
+            var completed = 0;
+            $j("div.studentscreen").each(function () {
+                $j(this).load("~[gpv:-studpage]&frn=001" + $j(this).prop("id") + " link,div#content-main", function () {
+                    completed++;
+                    $j("div#progressbar div#progress").css("width", completed / $j("div.studentscreen").size() * 100 + "%");
+                });
+            });
+            $j("div.studentscreen :last").css("page-break-after", "avoid");
+        });
+
+        $j(document).ajaxStop(function () {
+            $j("div#loadingmessage, div#screencontainer").toggle();
+        });
+    </script>
+
+
+</head>
+
+<body>
+
+<div id="loadingmessage" style="text-align:center; font-size:1.5em; color:#333; margin:25px;">
+
+    <p>Please wait while the student screens load...</p>
+
+    <div id="progressbar" style="border:1px solid #333; width:50%; margin:auto; margin-top:1.5em;">
+        <div id="progress" style="background-color:#BAD3E5; width:0%; height:2em;">
+        </div>
+    </div>
+
+</div>
+
+<div id="screencontainer" style="display:none;">
+
+    ~[tlist_sql;
+    select
+    Students.DCID
+    from
+    students
+    inner join ~[temp.table.current.selection:Students] temp on temp.dcid = Students.dcid
+    order by students.lastfirst
+    ;]
+    <div id="~(dcid)" class="studentscreen">
+    </div>
+    [/tlist_sql]
+
+</div>
+
+</body>
+
+</html>
