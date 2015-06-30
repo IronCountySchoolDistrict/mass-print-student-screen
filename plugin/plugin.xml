@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         description="Mass print a student page"
         name="Mass Print Student Screen"
-        version="1.3"
+        version="1.3.0"
         xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">
     <publisher name="Iron County School District Data Team">
         <contact email="data@ironmail.org"/>
