@@ -1,12 +1,5 @@
 <!-- Begin Mass Print custom content -->
-<script>
-    /*global $j*/
-    // Insert Build Email Lists option.
-    $j(document).ready(function () {
-        studentFunctions.splice(27, 0, {
-            address: "/admin/studentlist/counselor/massprint.html",
-            name: "Mass Print Student Screen"
-        });
-    });
-</script>
+
+<script src="/scripts/mass-print-student-screen/js/massprint.js"></script>
+
 <!-- End Mass Print custom content -->
