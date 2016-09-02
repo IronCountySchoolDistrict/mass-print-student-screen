@@ -1,5 +1,7 @@
-(function ($){
-  $(document).ready(function(){
+import $ from 'jquery';
+
+export default function() {
+  $(() => {
     studentFunctions.forEach((object, index) => {
       if(object.name === "Printing"){
         studentFunctions.splice(index+4,0, {
@@ -9,4 +11,4 @@
       }
     })
   });
-})($j);
+}

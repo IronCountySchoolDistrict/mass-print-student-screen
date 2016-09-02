@@ -1,5 +1,15 @@
 <!-- Begin Mass Print custom content -->
 
-<script src="/scripts/mass-print-student-screen/js/massprint.js"></script>
+<script>
+  require.config({
+    paths: {
+      'massPrint': '/scripts/mass-print-student-screen/js/massprint'
+    }
+  });
+
+  require(['massPrint'], (massPrint) => {
+    massPrint.default();
+  });
+</script>
 
 <!-- End Mass Print custom content -->
